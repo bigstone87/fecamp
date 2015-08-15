@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+p{
+	color:blue;
+	text-decoration: underline;
+}
+strong{
+	color:red;
+}
+
+.front{
+	color:green;
+}
+#end{
+	font-weight: bold;
+}

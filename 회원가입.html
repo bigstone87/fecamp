@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta property="og:image" content="http://image.meetjul.com/data/20150814/1439528092_9bfc08653a604380b534a09fed2c504e.jpg">
+		<meta property="og:image" url="http://meetjul.com/community/contentView.jul/00000000000000000039">
+		<meta name="subject" content="html+CSS기초">
+		<meta name="title" content="비치보이스">
+		<meta name="author" content="강현구">
+		<meta name="keywords">
+		<meta name="viewport">
+		<title>회원가입</title>
+		<link rel="stylesheet" href="style2.css">
+</head>
+<body>
+	<h1>회원가입</h1>
+	<form atction="sampe.html" method="post">
+		<fieldset>
+			<legend>필수 입력 정보</legend>
+			<p>
+				<label>
+					이메일
+					<input type="email" name="email" title="이메일을 정확히 입력해주세요">
+				</label>
+			</p>
+			<p>
+				<label for="password">비밀번호</label>
+				<input type="password" name="password">
+			</P>
+			<p>
+				<label for="password">비밀번호 확인</label>
+				<input type="password" name="password">
+			</p>
+		</fieldset>
+
+		<fieldset>
+			<legend>선택 입력 사항</legend>
+			<p>
+				<legend>연락처</legend>
+				<select>
+					<option value="010">010</option>
+					<option value="02">02</option>
+					<option value="031">031</option>
+					<option value="070">070</option>
+				</select>
+				<input type="text" name="phone2" size="6" maxlenght"4">
+				<input type="text" name="phone3" size="6" maxlenght"4"></p>
+			</p>
+			<p>
+				<legend>생년월일</legend>
+				<input type="date" name="bday" max="9999-01-02" min="1979-12-31">
+			</p>
+		</fieldset>
+
+		<button type="submit" title="가입">가입</button>
+		<button type="reset">취소</button>
+
+
+</body>
