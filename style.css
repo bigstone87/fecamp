@@ -7,6 +7,19 @@ p{
 
 ------------------------------------------------
 
+.class{
+		color: blue
+}
+
+.class2{
+	color: rgba(100, 100, 100, 0.8);
+}
+
+#id{
+		color: red
+}
+
+
 strong{
 	color:red;
 }
