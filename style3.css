@@ -2,11 +2,14 @@
 
 
 .front{
-	border-color:#E82C0C;
-	border-style: solid;
-	border-width: 3px;
+	font-style:italic;
+	font-weight: ;
+	font-size: ;
+	font-family: ;
+	font-variant:;
+	font-height:; 
 }
 
 #end{
-	background-color: rgba(0,100,0,1); 
+	font-style: normal;
 }
