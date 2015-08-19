@@ -2,14 +2,15 @@
 
 
 .front{
-	font-style:italic;
-	font-weight: ;
-	font-size: ;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 21pt;
 	font-family: ;
 	font-variant:;
 	font-height:; 
 }
 
 #end{
-	font-style: normal;
+	font-style: oblique;
+	font-weight: normal;
 }
