@@ -19,10 +19,12 @@
 			width:160px;
 		}
 	</style>
-<body onload="alert(document.body.clientWidth);">
+</head>
+<body>
 
-<div class="box"></div>
-<div class="box half"></div>
+	<div class="box"
+	onload="alert(document.body.clientWidth + ':' + document.body.clientHeight);"></div>
+	<div class="box half"></div>
 
 </body>
 </html>
