@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+div{
+	display: block;
+}
+
+div.contents{
+	background-color: #789;
+	color: #fff;
+}

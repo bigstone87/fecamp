@@ -1,0 +1,376 @@
+<!DOCTYPEhtml>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LAYOUT연습</title>
+	<style>
+	/*브라우저 기본 스타일을 user agent...를 제거하기 위한 코드*/
+		body, h1{
+			margin: 0;
+		}
+
+		a{
+			text-decoration: none; /*a태그의 기본 밑줄을 제거*/
+		}
+
+		ul{
+			list-style: none;
+		}
+
+		header h1{
+			line-height: 80px;
+			text-align: center;
+			background-color: #fff;
+		}
+
+	/*내가 작성한 코드*/
+
+		/*gnb 영역*/
+
+		header{
+			position: fixed;
+			right: 0;
+			left:0;
+			height: 122px;
+			background-color: #888;
+
+		}
+
+		.gnb_wrap{
+			background-color: #888;
+
+		}
+
+		.gnb{
+			padding: 0;
+			width: 900px;
+			margin: 0 auto;
+		}
+		
+
+		.gnb:after{
+			display: block;
+			clear: both;
+			content: '';
+		}
+
+
+		.gnb > li{  /*ul > li :ul바로 아래있는 li에만 적용*/
+			float: left;
+			width: 150px;
+			position: relative; /*부모태크에 레이어의 relative를 지정해줘야 자식태그의 레이어를 %로 적용할 수 있다*/
+		}
+
+		.gnb > li:hover .gnb_sub{
+			display: block;
+		}
+
+
+		.gnb > li > a{
+			display: block; /*a태그에 영역을 만들어주기 위해 사용*/
+			width: 150px;
+			padding: 10px 0;
+			line-height: 20px;
+			border: 1px solid #ccc;
+			background-color: #888;
+			text-align: center;
+		}
+
+		.gnb > li > a:hover {
+			background-color: #111;
+		}
+
+		/*.gnb > li > a:hover + .gnb_sub{
+			display: block;
+		}*/
+
+
+		.gnb_sub{ /*.gnb ul 과 동일하게 동작함*/
+			/*display: none;*/
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 100%;
+			padding: 0;
+			width: 100%;
+		}
+
+
+		.gnb_sub li {
+			background-color: #fff;
+		}
+
+
+
+		.gnb_sub li+li {
+			border-top: 5px solid #ccc;
+		}
+
+		
+
+		.gnb_sub li a {
+			display: block;
+			padding: 5px;
+			text-align: center;
+			color: #999;
+		}
+
+
+		.gnb_sub li a:hover {
+			color: #000;
+		}
+
+
+
+		/* contens 영역*/
+		
+		.wrap{
+			min-width: 600px;
+			background-color:  #ff1;
+			margin: 0 auto;
+		}
+
+		nav{
+			float: left;
+			width: 250px;
+			background-color:  #fff;
+		}
+
+		.category{
+			padding: 0;
+			margin: 0;
+			border: 2px solid #0d8ef7;
+			background-color: #fff;
+		}
+
+		.category li a{
+			display: block;
+			padding: 6px 0 5px 40px; /*행간을 line-height와 padding을 섞어서 계산*/
+			color: #333;
+			background-image: url(img/ico_gnb_category.png);
+			background-repeat: no-repeat;
+			background-position: 10px -24px;
+			font-family: '돋움', dotum, sans-serif; 
+			font-size: 12px;
+			line-height: 18px;
+		}
+
+		.category li a:hover{
+			color: #0d8ef7;
+			font-weight: bold;
+			padding-left: 42px;
+			background-position: 12px -414px;
+		}
+
+		.category li a.item1{
+			background-position: 10px -24px
+		}
+
+		.category li a.item2{
+			background-position: 10px -54px
+		}
+
+		.category li a.item3{
+			background-position: 10px -84px
+		}
+
+		.category li a.item4{
+			background-position: 10px -114px
+		}
+
+		.category li a.item5{
+			background-position: 10px -144px
+		}
+
+
+		.category li a.item1:hover{
+			background-position: 12px -414px
+		}
+		.category li a.item2:hover{
+			background-position: 12px -444px
+		}
+		.category li a.item3:hover{
+			background-position: 12px -474px
+		}
+		.category li a.item4:hover{
+			background-position: 12px -504px
+		}
+		.category li a.item5:hover{
+			background-position: 12px -534px
+		}
+
+
+		.content{
+			overflow: hidden;
+			background-color:  #ccc;
+		}
+
+		.ellipsis{ /*말줄임 용 클래스 3가지 속성 셋*/
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.spot{
+			height: 200px;
+			background-color: #555;
+			background-image: url(img/big.jpeg);  /*만약 별도의 css문서로 정의한 경우 경로 작성은 url(..img/파일명)이다*/
+			background-repeat: no-repeat; /*repeat-y : 세로로만 반복 :repaet-x 가로로만 반복*/
+			background-position: 50% 0; /*시계방향, 그리고 왼쪽부터 수치가 반영됨. margin padding은 오른쪽부*/
+			/*background-attachment: fixed;*/ /*브라우저 기준으로 위치를 잡는다. 전체 브라우저의 배경 이미지를 꾸미거나 할 경우? 잘사용안함*/
+			background-size: contain; 
+			/*css3애서 새로나운 속성, 단 최신 브라우져만 지원가능하므로... 사실상 mobile을 위해 생겨난 속성. 예를들어 레티나 디스플레이에 대응할 때, 100px의 밀도높은 이미지를 리사징 할때 해당 밀도를 유지하면서 사이즈를 맞춰주는 기능이 있음*/
+		}
+
+		.aside{
+			overflow: hidden;
+			float: right;
+			width: 10%;
+			background-color: #666;
+		}
+
+		.container{
+			overflow: hidden;
+			padding-top: 122px;
+		}
+
+		
+		/*footer영역*/
+
+		footer{
+			height: 60px;
+			background-color: #444;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<header>
+			<h1><a href="www.meetjul.com">졸려죽겠다</a></h1>
+			<div class="gnb_wrap">
+				<ul class="gnb">
+					<li><a href="#">메뉴1</a>
+						<ul class="gnb_sub">
+							<li><a href="#" class="ellipsis">메메메메메메메메메메메메메뉴1-1</a></li>
+							<li><a href="#">메뉴1-2</a></li>
+							<li><a href="#">메뉴1-3</a></li>
+							<li><a href="#">메뉴1-4</a></li>
+							<li><a href="#">메뉴1-5</a></li>
+						</ul>
+					</li>
+					<li><a href="#">메뉴2</a>
+						<ul class="gnb_sub">
+							<li><a href="#">메뉴2-1</a></li>
+							<li><a href="#">메뉴2-2</a></li>
+							<li><a href="#">메뉴2-3</a></li>
+						</ul>
+					</li>
+					<li><a href="#">메뉴3</a>
+						<ul class="gnb_sub">
+							<li><a href="#">메뉴3-1</a></li>
+							<li><a href="#">메뉴3-2</a></li>
+							<li><a href="#">메뉴3-3</a></li>
+							<li><a href="#">메뉴3-4</a></li>
+						</ul>
+					</li>
+					<li><a href="#">메뉴4</a>
+						<ul class="gnb_sub">
+							<li><a href="#">메뉴4-1</a></li>
+							<li><a href="#">메뉴4-2</a></li>
+							<li><a href="#">메뉴4-3</a></li>
+							<li><a href="#">메뉴4-4</a></li>
+							<li><a href="#">메뉴4-5</a></li>
+							<li><a href="#">메뉴4-6</a></li>
+						</ul>
+					</li>
+					<li><a href="#">메뉴5</a>
+						<ul class="gnb_sub">
+							<li><a href="#">메뉴5-1</a></li>
+							<li><a href="#">메뉴5-2</a></li>
+							<li><a href="#">메뉴5-3</a></li>
+							<li><a href="#">메뉴5-4</a></li>
+						</ul>
+					</li>
+					<li><a href="#">메뉴6</a></li>
+				</ul>
+			</div>
+		</header>
+		<div class="container">
+			<aside class="aside">
+				aside
+			</aside>
+			<nav>
+				<ul class="category">
+					<li><a href="/" class="item1">패션의류/잡화</a></li>
+					<li><a href="/" class="item2">뷰티</a></li>
+					<li><a href="/" class="item3">출산/유아동</a></li>
+					<li><a href="/" class="item4">식품</a></li>
+					<li><a href="/" class="item5">주방/생활용</a></li>
+					<li><a href="/">가구/홈데코</a></li>
+					<li><a href="/">가전/디지털</a></li>
+					<li><a href="/">스포츠/레저용품</a></li>
+					<li><a href="/">도서/문구/취미</a></li>
+					<li><a href="/">반려/애완용품</a></li>
+					<li><a href="/">여행/레저</a></li>
+					<li><a href="/">지역할인쿠폰</a></li>
+					<li><a href="/">공연/전시/체험</a></li>
+				</ul>
+			</nav>
+			<div class="content">
+				<div class="spot"> <!-- 배경에 이미지가 패턴 'repeat' 으로 깔린다. -->
+					
+				</div>
+				<p class="ellipsis">
+					[풋볼리스트] 축구는 365일, 1주일 내내, 24시간 돌아간다. 축구공이 구르는데 요일이며 계절이 무슨 상관이랴. 그리하여 풋볼리스트는 주말에도 독자들에게 기획기사를 보내기로 했다. Saturday와 Sunday에도 축구로 거듭나시기를. 그게 바로 ‘풋볼리스트S’의 모토다. <편집자 주>
+
+					손흥민(23)이 한국인으로는 13번째로 잉글리시프리미어리그(EPL)에 입성했다. 토트넘훗스퍼는 28일(한국시간) 레버쿠젠의 손흥민을 영입했다고 공식 발표했다. 등번호는 7번, 계약기간은 5년이다. 최고의 활약을 펼친 가운데 EPL에 입성해 팬들의 기대는 더욱 커지고 있다. 박지성, 이영표, 기성용 등 공격수가 아닌 포지션의 선수들만 성공했기 때문에 손흥민을 보는 시선은 남다르다. ‘풋볼리스트’가 손흥민 그리고 토트넘에 모든 것에 대해 알아봤다.
+
+					7번. 에이스 또는 윙어를 상징하는 번호다. 크리스티아누 호날두(레알마드리드), 라힘 스털링(맨체스터시티), 프랭크 리베리(바이에른뮌헨) 등 정상급 윙어가 현재 7번을 달고 있다. 그래서 토트넘이 손흥민에게 7번이라는 번호를 준 것에 대해서는 의미를 둘 수 있다. 토트넘이 손흥민에 대한 기대치가 어느 정도인지 알 수 있는 대목이다.
+
+					역대 토트넘 선수 가운데 7번을 달고 최고의 활약을 펼친 선수는 많지 않았다. 실력이 있는 선수들이 7번을 달긴 했으나 EPL을 휩쓸만한 활약을 보여준 선수는 없었다. 직접 골을 넣기보다는 도움을 주는 유형의 선수가 많았다. 맨체스터유나이티드의 7번과는 조금 다른 의미로 해석될 수 있는 토트넘의 7번이다. 다시 말해 손흥민이 토트넘 7번의 역사를 새로 쓸 수 있다는 의미다.
+
+					토트넘의 등번호 7번은 최근 7시즌 모두 레넌이 달았다. 폭발적인 스피드를 앞세운 단신 윙어였다. 그런데 기대만큼 활약을 이어가진 못했다. 기대가 너무 컸던 탓도 있었다.
+
+					2005/2006시즌 리즈유나이티드에서 토트넘으로 이적한 레넌은 2008/2009시즌부터 7번을 달기 시작했다. 엄청난 속도와 역동적인 드리블로 토트넘 이적 초창기에는 큰 주목을 받았다.
+				</p>
+
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+				콘텐츠<br>
+			</div>
+		</div>
+		<footer>푸터</footer>
+	</div>
